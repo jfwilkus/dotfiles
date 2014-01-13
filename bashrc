@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH=$PATH:/usr/local/bin
+PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 PATH=$PATH:/usr/local/texlive/2012/bin/x86_64-darwin:/usr/local/heroku/bin
 export PATH
 
