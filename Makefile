@@ -10,3 +10,4 @@ all:
 	$(INSTALL_FILE) gemrc $(HOME)/.gemrc
 	$(INSTALL_FILE) minicpanrc $(HOME)/.minicpanrc
 	$(INSTALL_FILE) perltidyrc $(HOME)/.perltidyrc
+	$(INSTALL_FILE) calendar.wilkus $(HOME)/.calendar.wilkus
