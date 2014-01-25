@@ -26,5 +26,4 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
-calendar -f /usr/share/calendar/calendar.usholiday
-calendar -f ~/.calendar.wilkus
+calendar
