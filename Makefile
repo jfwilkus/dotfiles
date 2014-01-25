@@ -11,4 +11,4 @@ all:
 	$(INSTALL_FILE) minicpanrc $(HOME)/.minicpanrc
 	$(INSTALL_FILE) perltidyrc $(HOME)/.perltidyrc
 	-if [ ! -d ~/.calendar ]; then mkdir ~/.calendar; fi
-	$(INSTALL_FILE) calendar.wilkus $(HOME)/.calendar/calendar
+	$(INSTALL_FILE) calendar $(HOME)/.calendar/calendar
