@@ -17,7 +17,6 @@ export EDITOR=vi
 export CLUSTER=~/.clusterrc
 
 alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
-alias subl="/Applications/Sublime\ Text\ 2.app//Contents/SharedSupport/bin/subl"
 
 complete -W "$( dzil | awk '/^[[:space:]]+[[:alpha:]]+: [[:alpha:]]+/ { print $1 }' | sed 's;:;;' )" dzil
 export GIT_PS1_SHOWDIRTYSTATE=1
@@ -25,5 +24,3 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
-
-calendar
