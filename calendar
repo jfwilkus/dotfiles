@@ -2,7 +2,6 @@
 #define _calendar_history_
 
 #include <calendar.usholiday>
-#include <calendar.birthday>
 
 1/1     Gregg's Birthday, 1982
 1/9     Trinity Miller's Birthday, 2003
