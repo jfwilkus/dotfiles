@@ -15,7 +15,7 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
   source ~/perl5/perlbrew/etc/bashrc
 fi
 
-if [ ${OS} == "Darwin" && $( which brew 2> /dev/null ) ]; then
+if [ ${OS} == "Darwin" ] && [ $( which brew 2> /dev/null ) ]; then
   if [ -f `brew --prefix`/etc/bash_completion ]; then
     source `brew --prefix`/etc/bash_completion
   fi
@@ -23,7 +23,7 @@ elif [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
-if [ $(which rbenv > /dev/null) ]; then
+if [ $(which rbenv 2> /dev/null) ]; then
   eval "$(rbenv init -)"
 fi
 
