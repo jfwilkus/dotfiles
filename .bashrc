@@ -18,9 +18,11 @@ fi
 if [ ${OS} == "Darwin" ] && [ $( which brew 2> /dev/null ) ]; then
   if [ -f `brew --prefix`/etc/bash_completion ]; then
     source `brew --prefix`/etc/bash_completion
+    export _BASH_COMPLETION=1
   fi
 elif [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
+  export _BASH_COMPLETION=1
 fi
 
 if [ $(which rbenv 2> /dev/null) ]; then
@@ -35,7 +37,7 @@ if [ $(which dzil 2> /dev/null ) ]; then
   complete -W "$( dzil | awk '/^[[:space:]]+[[:alpha:]]+: [[:alpha:]]+/ { print $1 }' | sed 's;:;;' )" dzil
 fi
 
-if [ $(__git_ps1 "test" 2> /dev/null ) ]; then
+if [ ${_BASH_COMPLETION} ]; then
   export GIT_PS1_SHOWDIRTYSTATE=1
   export GIT_PS1_SHOWSTASHSTATE=1
   export GIT_PS1_SHOWUNTRACKEDFILES=1
