@@ -9,8 +9,6 @@ export COPYFILE_DISABLE=true
 export EDITOR=vi
 export CLUSTER=~/.clusterrc
 
-BASH_COMPLETION=false
-
 OS=$(uname -s)
 
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
@@ -20,11 +18,9 @@ fi
 if [ ${OS} == "Darwin" ] && [ $( which brew 2> /dev/null ) ]; then
   if [ -f `brew --prefix`/etc/bash_completion ]; then
     source `brew --prefix`/etc/bash_completion
-    BASH_COMPLETION=true
   fi
 elif [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
-  BASH_COMPLETION=true
 fi
 
 if [ $(which rbenv 2> /dev/null) ]; then
@@ -39,7 +35,7 @@ if [ $(which dzil 2> /dev/null ) ]; then
   complete -W "$( dzil | awk '/^[[:space:]]+[[:alpha:]]+: [[:alpha:]]+/ { print $1 }' | sed 's;:;;' )" dzil
 fi
 
-if [ ${BASH_COMPLETION} == "true" ]; then
+if [ $(__git_ps1 "test" 2> /dev/null ) ]; then
   export GIT_PS1_SHOWDIRTYSTATE=1
   export GIT_PS1_SHOWSTASHSTATE=1
   export GIT_PS1_SHOWUNTRACKEDFILES=1
