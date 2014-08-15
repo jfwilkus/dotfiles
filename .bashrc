@@ -9,6 +9,9 @@ export COPYFILE_DISABLE=true
 export EDITOR=vi
 export CLUSTER=~/.clusterrc
 
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
 OS=$(uname -s)
 
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
