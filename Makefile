@@ -1,14 +1,34 @@
 
-INSTALL_FILE=install -m 644 -o $(LOGNAME) -g staff
+OS=$(shell uname -s)
 
-all:
-	$(INSTALL_FILE) bash_profile $(HOME)/.bash_profile
-	$(INSTALL_FILE) bashrc $(HOME)/.bashrc
-	$(INSTALL_FILE) profile $(HOME)/.profile
-	$(INSTALL_FILE) vimrc $(HOME)/.vimrc
-	$(INSTALL_FILE) gitconfig $(HOME)/.gitconfig
-	$(INSTALL_FILE) gemrc $(HOME)/.gemrc
-	$(INSTALL_FILE) minicpanrc $(HOME)/.minicpanrc
-	$(INSTALL_FILE) perltidyrc $(HOME)/.perltidyrc
-	-if [ ! -d ~/.calendar ]; then mkdir ~/.calendar; fi
-	$(INSTALL_FILE) calendar $(HOME)/.calendar/calendar
+ifeq ($(OS),Linux)
+	GROUP=wheel
+endif
+
+LOGNAME?=jfwilkus
+GROUP?=staff
+
+INSTALL_FILE=install -m 644 -o $(LOGNAME) -g $(GROUP)
+
+FILES+=.bashrc
+FILES+=.bash_profile
+FILES+=.profile
+FILES+=.vimrc
+FILES+=.gitconfig
+FILES+=.gemrc
+FILES+=.minicpanrc
+FILES+=.perltidyrc
+
+.PHONY: $(FILES)
+
+help:
+	@echo
+	@echo "USAGE: make [all|help]"
+	@echo
+	@echo "\tall\t\tInstalls dotfiles"
+	@echo
+
+all: $(FILES)
+
+$(FILES):
+	$(INSTALL_FILE) $@ $(HOME)/$@
