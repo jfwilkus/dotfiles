@@ -5,9 +5,14 @@ ifeq ($(OS),Linux)
 	GROUP=wheel
 endif
 
+ifeq ($(OS),Darwin)
+	ECHO=echo
+endif
+
+
 LOGNAME?=jfwilkus
 GROUP?=staff
-
+ECHO?=echo -e
 INSTALL_FILE=install -m 644 -o $(LOGNAME) -g $(GROUP)
 
 FILES+=.bashrc
@@ -22,11 +27,11 @@ FILES+=.perltidyrc
 .PHONY: $(FILES)
 
 help:
-	@echo
-	@echo "USAGE: make [all|help]"
-	@echo
-	@echo -e "\tall\t\tInstalls dotfiles"
-	@echo
+	@$(ECHO)
+	@$(ECHO) "USAGE: make [all|help]"
+	@$(ECHO)
+	@$(ECHO) "\tall\t\tInstalls dotfiles"
+	@$(ECHO)
 
 all: $(FILES)
 
