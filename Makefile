@@ -25,7 +25,7 @@ help:
 	@echo
 	@echo "USAGE: make [all|help]"
 	@echo
-	@echo "\tall\t\tInstalls dotfiles"
+	@echo -e "\tall\t\tInstalls dotfiles"
 	@echo
 
 all: $(FILES)
