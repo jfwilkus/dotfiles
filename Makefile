@@ -13,11 +13,14 @@ endif
 LOGNAME?=jfwilkus
 GROUP?=staff
 ECHO?=echo -e
-INSTALL_FILE=install -m 644 -o $(LOGNAME) -g $(GROUP)
 
-FILES+=.bashrc
-FILES+=.bash_profile
-FILES+=.profile
+INSTALL_FILE=install -m 644 -o $(LOGNAME) -g $(GROUP)
+INSTALL_SCRIPT=install -m 755 -o $(LOGNAME) -g $(GROUP)
+
+SCRIPTS+=.bashrc
+SCRIPTS+=.bash_profile
+SCRIPTS+=.profile
+
 FILES+=.vimrc
 FILES+=.gitconfig
 FILES+=.gemrc
@@ -33,7 +36,10 @@ help:
 	@$(ECHO) "\tall\t\tInstalls dotfiles"
 	@$(ECHO)
 
-all: $(FILES)
+all: $(FILES) $(SCRIPTS)
 
 $(FILES):
 	$(INSTALL_FILE) $@ $(HOME)/$@
+
+$(SCRIPTS):
+	$(INSTALL_SCRIPT) $@ $(HOME)/$@
