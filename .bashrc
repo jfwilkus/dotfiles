@@ -32,9 +32,18 @@ if [ $(which rbenv 2> /dev/null) ]; then
   eval "$(rbenv init -)"
 fi
 
-if [ ${OS} == "Darwin" ]; then
-  alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
-fi
+case ${OS} in
+  Darwin)
+    export TERM=xterm-256color
+    alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
+    ;;
+  Linux)
+    export TERM=xterm-256color
+    ;;
+  SunOS)
+      export TERM=dtterm
+  ;;
+esac
 
 if [ $(which dzil 2> /dev/null ) ]; then
   complete -W "$( dzil | awk '/^[[:space:]]+[[:alpha:]]+: [[:alpha:]]+/ { print $1 }' | sed 's;:;;' )" dzil
