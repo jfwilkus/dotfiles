@@ -27,7 +27,7 @@ FILES+=.gemrc
 FILES+=.minicpanrc
 FILES+=.perltidyrc
 
-.PHONY: $(FILES)
+.PHONY: $(FILES) $(SCRIPTS)
 
 help:
 	@$(ECHO)
