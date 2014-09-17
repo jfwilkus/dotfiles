@@ -34,6 +34,7 @@ fi
 
 case ${OS} in
   Darwin)
+    export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
     export TERM=xterm-256color
     alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
     ;;
