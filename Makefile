@@ -9,6 +9,10 @@ ifeq ($(OS),Darwin)
 	ECHO=echo
 endif
 
+ifeq ($(OS),OpenBSD)
+	ECHO=echo
+	GROUP=wheel
+endif
 
 LOGNAME?=jfwilkus
 GROUP?=staff
