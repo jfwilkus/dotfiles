@@ -24,6 +24,7 @@ channels = (
   { name = "#docker"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#chef"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#ubuntu"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "##infra-talk"; chatnet = "freenode"; autojoin = "yes"; },
 );
 
 aliases = {
