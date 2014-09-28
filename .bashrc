@@ -16,6 +16,7 @@ OS=$(uname -s)
 
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
   source ~/perl5/perlbrew/etc/bashrc
+  source ${PERLBREW_ROOT}/etc/perlbrew-completion.bash
 fi
 
 if [ ${OS} == "Darwin" ] && [ $( which brew 2> /dev/null ) ]; then
