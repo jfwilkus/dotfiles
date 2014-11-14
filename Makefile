@@ -30,6 +30,7 @@ FILES+=.gitconfig
 FILES+=.gemrc
 FILES+=.minicpanrc
 FILES+=.perltidyrc
+FILES+=.perlcriticrc
 
 .PHONY: $(FILES) $(SCRIPTS)
 
