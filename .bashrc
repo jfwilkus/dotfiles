@@ -47,6 +47,12 @@ case ${OS} in
   ;;
 esac
 
+# Syntax highlighting for less
+if [ $(which src-hilite-lesspipe.sh 2> /dev/null ) ]; then
+  export LESSOPEN="| src-hilite-lesspipe.sh %s"
+  export LESS=' -R '
+fi
+
 if [ $(which dzil 2> /dev/null ) ]; then
   complete -W "$( dzil | awk '/^[[:space:]]+[[:alpha:]]+: [[:alpha:]]+/ { print $1 }' | sed 's;:;;' )" dzil
 fi
