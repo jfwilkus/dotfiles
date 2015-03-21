@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
-PATH=$PATH:/usr/local/texlive/2012/bin/x86_64-darwin:/usr/local/heroku/bin
+PATH=$PATH:/usr/local/texlive/2014/bin/x86_64-darwin:/usr/local/heroku/bin:
 export PATH
 
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
@@ -11,6 +11,10 @@ export CLUSTER=~/.clusterrc
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 
 OS=$(uname -s)
 
@@ -33,6 +37,8 @@ if [ $(which rbenv 2> /dev/null) ]; then
   eval "$(rbenv init -)"
 fi
 
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 case ${OS} in
   Darwin)
     export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
@@ -52,6 +58,8 @@ if [ $(which src-hilite-lesspipe.sh 2> /dev/null ) ]; then
   export LESSOPEN="| src-hilite-lesspipe.sh %s"
   export LESS=' -R '
 fi
+
+source "`brew --prefix`/etc/grc.bashrc"
 
 if [ $(which dzil 2> /dev/null ) ]; then
   complete -W "$( dzil | awk '/^[[:space:]]+[[:alpha:]]+: [[:alpha:]]+/ { print $1 }' | sed 's;:;;' )" dzil
