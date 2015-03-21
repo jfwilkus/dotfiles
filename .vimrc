@@ -26,6 +26,8 @@ set viminfo='20,\"500
 set title
 set ttyfast
 set showmode
+set modeline
+set modelines=5
 
 syntax on
 colorscheme zellner
